@@ -13,3 +13,9 @@ function drawMute() {
     text("❌", 16, 32)
   }
 }
+
+function ensureMusic(context) {
+  if (context.state == "suspended" & frameCount % 100 == 0) {
+    music.loop()
+  }
+}

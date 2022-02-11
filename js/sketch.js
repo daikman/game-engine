@@ -61,6 +61,9 @@ function draw() {
   drawMute();
   drawCursor();
 
+  // attempt to play music if it did no initialise correctly
+  ensureMusic(music.output.context)
+
 }
 
 function drawCursor() {
