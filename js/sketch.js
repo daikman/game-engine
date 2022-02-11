@@ -10,7 +10,6 @@ let h = 400
 function preload() {
   // load all levels
   for (let i of levels) {
-    console.log(i.bg)
     i.path = loadImage(i.path)
     //i.path = getPath(i.path)
     i.bg = loadImage(i.bg)
@@ -59,11 +58,7 @@ function draw() {
   // draw travel transition
   travelTransition(travelling)
 
-  // debugging stuff
-  // drawPath(level.path)
-  // fill(0, 0, 0, 100)
-  // circle(target.x, target.y, 16)
-
+  drawMute();
   drawCursor();
 
 }
@@ -84,13 +79,23 @@ function drawPath(path) {
 
 function mouseClicked() {
 
-  if (mouseY < h) {
+  // check what is being clicked
+  let hud = mouseY > h;
+  let muteButton = mouseX > 16 & mouseX < 37 & mouseY > 16 & mouseY < 37
+
+  if (hud) {
+    nextDia()
+  }
+
+  if (muteButton) {
+    mute()
+  }
+
+  if (!hud & !muteButton) {
     if (!travelling) {
       target = createVector(mouseX, mouseY)
       player.index = player.searchPath(target)
     }
-  } else {
-    nextDia()
   }
 
   // check events layers

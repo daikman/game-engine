@@ -68,8 +68,6 @@ function getEventPos(img) {
     }
   }
 
-  console.log(Xs)
-
   return(
     {
       xMin: min(Xs),

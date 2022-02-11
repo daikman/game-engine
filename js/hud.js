@@ -1,7 +1,6 @@
 let hud = {
   content: [
     ["Hello"],
-    ["Goodbye"],
     ["..."]
   ],
   display: 0
