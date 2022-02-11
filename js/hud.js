@@ -7,7 +7,7 @@ let hud = {
     ["Welcome to Norrsken"],
     ["Welcome to Norrsken, a game were you walk around in a snowy forrest."],
     ["So..."],
-    ["Walk around!"],
+    "Walk around!",
   ],
   duration: [200, 200, 100, null, 100, null, 100, 200],
   display: 0

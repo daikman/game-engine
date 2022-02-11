@@ -36,7 +36,7 @@ function setup() {
   objects = getObjects(level.objects)
 
   music = level.music
-  music.amp(0.8)
+  music.amp(0.1)
   music.loop()
 
   pixelDensity(1)
