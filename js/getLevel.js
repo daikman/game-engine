@@ -12,6 +12,7 @@ function getLevel(name) {
 
   for (let e of level.events) {
     e.pos = getEventPos(e.img)
+    e.img = null;
   }
 
   return(level);

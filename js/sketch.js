@@ -19,12 +19,18 @@ function preload() {
 
     i.music = loadSound(i.music)
   }
+
   playerSprite = loadImage("images/sprites/spritesheet.png")
 }
 
 function setup() {
   createCanvas(w, h + 50);
-  level = getLevel("start")
+  // get levels
+  let levelNames = levels.map(d => d.name)
+  for (let i in levels) {
+    levels[i] = getLevel(levelNames[i])
+  }
+  level = levels[0]
   level.bg.resize(w, h)
   //level.bgStyle = stylize(level.bg, 4)
   player = new Player(
@@ -67,6 +73,7 @@ function draw() {
 }
 
 function drawCursor() {
+  noStroke()
   fill(255, 155, 155, 200)
   circle(mouseX, mouseY, 12)
 }

@@ -11,7 +11,9 @@ function handleEvent(type, content) {
 function travel(content) {
 
   if (travelling) {
-    level = getLevel(content)
+    let levelNames = levels.map(d => d.name)
+    let levelIndex = levelNames.indexOf(content)
+    level = levels[levelIndex]
     level.bg.resize(w, h)
     //level.bgStyle = stylize(level.bg, 4)
     player.x = level.path[0][level.start]
@@ -30,7 +32,7 @@ function travel(content) {
     }
 
     travelling = false
-    hud.content = [""]
+    // hud.content = [""]
   } else {
     travelling = true
     setTimeout(travel, 100, content)
@@ -40,7 +42,8 @@ function travel(content) {
 
 function travelTransition(travelling) {
   if (travelling) {
-    hud.content = ["Travelling..."]
-    hud.display = 0
+    // hud.content = [["Travelling..."]]
+    // hud.duration = [10]
+    // hud.display = 0
   }
 }
